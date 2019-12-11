@@ -58,6 +58,7 @@ public class UserServiceTest{
         assertEquals( createUser.getRoles( ), updatedUser.getRoles( ) );
     }
 
+
     @Test
     public void isRightUserTest( ){
         RegisterUserPOJO user = new RegisterUserPOJO( );

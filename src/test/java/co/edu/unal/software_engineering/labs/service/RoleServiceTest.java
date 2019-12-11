@@ -44,9 +44,16 @@ public class RoleServiceTest{
         Role teacher = roleService.findById( Role.getTeacher( ).getId( ) );
         assertEquals( student, Role.getStudent( ) );
         assertEquals( teacher, Role.getTeacher( ) );
-
         assertNotEquals( student, Role.getTeacher( ) );
         assertNotEquals( teacher, Role.getStudent( ) );
+
+        int FAKE_ROLE_ID = 3;
+        String FAKE_ROLE_NAME = "Fake_test_role";
+        Role fakeRole = new Role();
+        fakeRole.setId( FAKE_ROLE_ID );
+        fakeRole.setRoleName( FAKE_ROLE_NAME );
+        assertNotEquals( student, fakeRole );
+        assertNotEquals( teacher, fakeRole );
     }
 
 }
