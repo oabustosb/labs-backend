@@ -8,7 +8,7 @@ pipeline {
         stage ('Initialize') {
             steps {
                 sh '''
-                    curl "https://api.github.com/repos/oabustosb/labs-backend/statuses/$GIT_COMMIT?access_token=81032c5174b0e2988f9fd013efb258ec6f0a0100" \
+                    curl "https://api.github.com/repos/oabustosb/labs-backend/statuses/$GIT_COMMIT?access_token=a2796daefdb4cd194e67fb7ec4e468bdb18089ea" \
                       -H "Content-Type: application/json" \
                       -X POST \
                       -d "{\"state\": \"pending\",\"context\": \"continuous-integration/jenkins\", \"description\": \"Jenkins\", \"target_url\": \"$BUILD_URL\"}"
@@ -27,10 +27,10 @@ pipeline {
     post{
         always{
             sh '''
-                curl "https://api.github.com/repos/oabustosb/labs-backend/statuses/$GIT_COMMIT?access_token=81032c5174b0e2988f9fd013efb258ec6f0a0100" \
+                curl "https://api.github.com/repos/oabustosb/labs-backend/statuses/$GIT_COMMIT?access_token=a2796daefdb4cd194e67fb7ec4e468bdb18089ea" \
                   -H "Content-Type: application/json" \
                   -X POST \
-                  -d "{\"state\": \"$BUILD_STATUS\",\"context\": \"continuous-integration/jenkins\", \"description\": \"Jenkins\", \"target_url\": \"$BUILD_URL\"}"
+                  -d "{\"state\": \"success\",\"context\": \"continuous-integration/jenkins\", \"description\": \"Jenkins\", \"target_url\": \"$BUILD_URL\"}"
             '''
         }
     }
